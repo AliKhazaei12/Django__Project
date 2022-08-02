@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+{% load render_partial %}
+{% block content %}
+    <div class="main-banner header-text">
+        <div class="container-fluid">
+            <div class="owl-banner owl-carousel">
+                {% for item in article %}
+                    <div class="item">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                        <div class="item-content">
+                            <div class="main-content">
+                                <div class="meta-category">
+                                    <span>{{ item.category.first.title }}</span>
+                                </div>
+                                <a href="{{ item.get_absolute_ulr }}"><h4>{{ item.title }}</h4></a>
+                                <ul class="post-info">
+                                    <li><a href="#">{{ item.author.username }}</a></li>
+                                    <li><a href="#">{{ item.created }}</a></li>
+                                    <li><a href="#">12 Comments</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <section class="blog-posts">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="all-blog-posts">
+                        <div class="row">
+                            {% for item in article %}
+                                <div class="col-lg-12">
+                                    <div class="blog-post">
+                                        <div class="blog-thumb">
+                                            <img src="{{ item.image.url }}" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <span>Lifestyle</span>
+                                            <a href="post-details.html"><h4>{{ item.title }}</h4></a>
+                                            <ul class="post-info">
+                                                <li><a href="#">{{ item.author.get_full_name }}</a></li>
+                                                <li><a href="#">{{ item.created }}</a></li>
+                                                <li><a href="#">12 Comments</a></li>
+                                            </ul>
+                                            <p>{{ item.body }} <a rel="nofollow" href="https://templatemo.com/contact"
+                                                            target="_parent">Contact TemplateMo</a> for more info. Thank
+                                                you.</p>
+                                            <div class="post-options">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <ul class="post-tags">
+                                                            <li><i class="fa fa-tags"></i></li>
+                                                            <li><a href="#">Beauty</a>,</li>
+                                                            <li><a href="#">Nature</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <ul class="post-share">
+                                                            <li><i class="fa fa-share-alt"></i></li>
+                                                            <li><a href="#">Facebook</a>,</li>
+                                                            <li><a href="#"> Twitter</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            {% endfor %}
+
+
+                            <div class="col-lg-12">
+                                <div class="main-button">
+                                    <a href="{% url 'Maqalat:Article List' %}">View All Posts</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% include 'include/sidebar.html' %}
+    </section>
+
+
+{% endblock %}

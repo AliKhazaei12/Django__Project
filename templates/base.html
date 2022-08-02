@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+
+
+{% include 'include/header.refrens.html' %}
+</head>
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- Header -->
+
+{% include 'include/header.html' %}
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+{% include 'include/footer.html' %}
+{% include 'include/footer.refrens.html' %}
+
+
+
+
+
+</body>
+</html>
